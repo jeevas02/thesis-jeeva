@@ -941,14 +941,14 @@ FUNCTION {misc}
   empty.misc.check
 }
 
-FUNCTION {phdthesis}
+FUNCTION {thesis}
 { output.bibitem
   format.authors "author" output.check
   author format.key output
   new.block
   format.btitle "title" output.check
   new.block
-  "PhD thesis" format.thesis.type output.nonnull
+  "thesis" format.thesis.type output.nonnull
   school "school" output.check
   address output
   format.date "year" output.check

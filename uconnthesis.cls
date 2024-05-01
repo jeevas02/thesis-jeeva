@@ -477,26 +477,6 @@ TT\fi %
 
 
 \def\maketitle{
-	\pagestyle{abstract} % turn on the new page style
-	\thispagestyle{empty}
-	% page 1: title, author and the abstract, if twoside add extra empty page
-	\begin{center}
-		{\t@font\@title \par}\vskip 1em
-		{\st@font\@subtitle \par}
-		\vspace{50pt}
-		{\a@font \begin{tabular}[t]{c}
-			\@author , Ph.D.\\
-			University of Connecticut, \@submityear%
-		\end{tabular} \par }
-	\end{center}
-	\vspace{50pt}
-	\@abstract
-	\if@twoside
-		\ifodd\c@page\new@tpage\addtocounter{page}{-1}\fi
-	\fi
-	\clearpage
-	\if@draft
-	\else
 		% dissertation statement, p.2, if twoside add extra empty page
 		\new@tpage
 		%\if@twoside\else\new@tpage\addtocounter{page}{-1}\fi
@@ -512,11 +492,8 @@ TT\fi %
 			{\tr@font \@translator \par}
 			\vfil
 			{\a@font
-	    		 A Dissertation\\
-			 Submitted in Partial Fulfillment of the\\
-			 Requirements for the Degree of\\
-		    	 Doctor of Philosophy\\
-			 at the\\
+	    		 A Thesis Submitted in Partial Fulfillment of the\\
+			 Requirements for the Bachelor of Science in Statistics\\
 			 University of Connecticut\\
 			 \@submityear
 			}
@@ -552,51 +529,7 @@ TT\fi %
 	\if@draft
 		\setcounter{page}{5}
 	\else
-		
-		% copyright, p.1, if twoside adds extra empty page
-		%\setcounter{page}{1}		
-		\begin{center}
-			\vspace*{50pt}
-			Copyright by\\
-			\vspace{10pt}
-			\@author \\
-			\vspace{\fill}
-			\@submityear\par
-		\end{center}
-		\if@twoside\new@tpage\addtocounter{page}{-1}\fi
-
-	
-		% approval page, p.2, with an extra empty page if twoside
-		\newpage
-		\begin{center}
-			\vspace*{.25in}
-			{\t@font APPROVAL PAGE} \\
-       		\vspace*{.2 in}
-			{\a@font Doctor of Philosophy Dissertation \par}
-			{\t@font \@title \par}
-			\vspace*{.2in}
-			{\a@font \lineskip 1.25em
-			\begin{tabular}[t]{c}
-				Presented by\\
-				\@author, \@authorspreviousdegreeshort
-			\end{tabular} \par }
-			\vfil
-			\vfil
-			\begin{tabular}[t]{lc}
-				Major Advisor & \\
-					  & \shortstack[c]{\vrule width 3.55in height 0.2pt \\ {\centering \@MajorAdvisor} }\\
-				Associate Advisor & \\
-					  & \shortstack[c]{\vrule width 3.55in height 0.2pt \\ {\centering \@AssociateAdvisorA} }\\
-				Associate Advisor & \\
-					  & \shortstack[c]{\vrule width 3.55in height 0.2pt \\ {\centering \@AssociateAdvisorB} }\\
-			\end{tabular}
-		\end{center}
-		\vfil
-		\begin{center}
-			University of Connecticut\\
-			\@submityear
-		\end{center}
-		\if@twoside\new@tpage\addtocounter{page}{-1}\fi
+				
 		% dedication page, p.3, if twopage adds empty page (possible problem: if dedication
 		% takes more then one page, an empty one still will be added)
 		\ifx\@dedication\@empty\else
@@ -604,17 +537,16 @@ TT\fi %
 			{\centering \a@font \@dedication \par}
 			\if@twoside\new@tpage\addtocounter{page}{-1}\fi
 		\fi
-		% acknowledgements, p.4, if twopage adds empty page (again, problem: if acknowledgement
-		% takes more then one page, an empty page is still added)
+		 %acknowledgements, p.4, if twopage adds empty page (again, problem: if acknowledgement
+		%takes more then one page, an empty page is still added)
 		\ifx\@acknowledgements\@empty
 		\else			
-			\newpage
-			\begin{center}
-				\vspace*{.25in}
-				{\t@font ACKNOWLEDGEMENTS}
- 			\end{center}
-			\vspace*{.2 in}
-			{\a@font \@acknowledgements }
+		%=	\newpage
+		%	\begin{center}
+				
+ 		%	\end{center}
+		%	\vspace*{.2 in}
+		
 			\if@twoside\new@tpage\addtocounter{page}{-1}\fi
 		\fi
 	\fi
@@ -772,9 +704,9 @@ TT\fi %
 	\fi
 	}
 \newlength{\beforechaptervspace}
-\setlength{\beforechaptervspace}{50pt}
+\setlength{\beforechaptervspace}{20pt}
 \newlength{\afterchaptervspace}
-\setlength{\afterchaptervspace}{30pt}
+\setlength{\afterchaptervspace}{10pt}
 \def\@makechapterhead#1{%
   \vspace*{\beforechaptervspace}{%
   \ifx\@chapapp\@empty
@@ -1364,13 +1296,22 @@ TT\fi %
 %\setlength{\textwidth}{6.5in}
 %\setlength{\parindent}{30pt}    % somewhere between 0.3" and 0.5"
 
-\setlength{\topmargin}{-0.25in}
-\setlength{\headheight}{0.25in}
-\setlength{\headsep}{0.25in}
-\setlength{\topskip}{0.25in}    % first line, down from page number
-\setlength{\textheight}{8.5in} % 9"-(topmargin+headsep+headheight)
-\setlength{\footskip}{0.5in}
+%\setlength{\topmargin}{-0.25in}
+%\setlength{\headheight}{0.25in}
+%\setlength{\headsep}{0.25in}
+%\setlength{\topskip}{0.25in}    % first line, down from page number
+%\setlength{\textheight}{8.5in} % 9"-(topmargin+headsep+headheight)
+%\setlength{\footskip}{0.5in}
 
+
+\setlength{\topmargin}{-0.7in}     % This might be left as is, or adjusted if necessary
+\setlength{\headheight}{0.25in}     % Usually not included in margin measurements
+\setlength{\headsep}{0.25in}        % Distance from header to text
+\setlength{\oddsidemargin}{0.25in}  % Left margin for odd pages
+\setlength{\evensidemargin}{0.25in} % Left margin for even pages (if twoside option is not used, this is irrelevant)
+\setlength{\textwidth}{5in}       % Text width
+\setlength{\textheight}{9.5in}      % Text height (you'll need to calculate this based on your top and bottom margins)
+\setlength{\footskip}{0.5in}        % Distance from bottom text to footer
 
 % introductory formatting
 \setlength{\textwidth}{5.75in}
